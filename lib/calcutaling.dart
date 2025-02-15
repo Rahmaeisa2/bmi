@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:bmi_calculator/age_container.dart';
-import 'package:bmi_calculator/genderContainer.dart';
 import 'package:bmi_calculator/result.dart';
 import 'package:bmi_calculator/weight_container.dart';
 import 'package:flutter/cupertino.dart';
@@ -135,63 +134,70 @@ class _CalculatingScreenState extends State<CalculatingScreen> {
             SizedBox(
               height: 20,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // ♂️ زر اختيار الذكر
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      isMale = true;
-                    });
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(30),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: (isMale == true) ? Colors.black: Colors.transparent, // ✅ تحديد لون الإطار
-                        width: 3,
+            SizedBox
+              (
+              width: 270,
+              height: 150,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isMale = true;
+                        });
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(30),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: (isMale == true) ? Colors.black: Colors.transparent,
+                            width: 3,
+                          ),
+                        ),
+                        child: Column(
+                          children: [
+                            Icon(Icons.male, size: 50, color: colorsApp.mainColor),
+                            Text("Male", style: TextStyle(fontSize: 18, color: colorsApp.mainColor)),
+                          ],
+                        ),
                       ),
                     ),
-                    child: Column(
-                      children: [
-                        Icon(Icons.male, size: 50, color: colorsApp.mainColor),
-                        Text("Male", style: TextStyle(fontSize: 18, color: colorsApp.mainColor)),
-                      ],
-                    ),
                   ),
-                ),
 
-                SizedBox(width: 10),
+                  SizedBox(width: 10),
 
-                // ♀️ زر اختيار الأنثى
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      isMale = false;
-                    });
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(30),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: (isMale == false) ? Colors.black : Colors.transparent, // ✅ تحديد لون الإطار
-                        width: 3,
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isMale = false;
+                        });
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(30),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: (isMale == false) ? Colors.black : Colors.transparent,
+                            width: 3,
+                          ),
+                        ),
+                        child: Column(
+                          children: [
+                            Icon(Icons.female, size: 50, color: colorsApp.mainColor),
+                            Text("Female", style: TextStyle(fontSize: 18, color: colorsApp.mainColor)),
+                          ],
+                        ),
                       ),
                     ),
-                    child: Column(
-                      children: [
-                        Icon(Icons.female, size: 50, color: colorsApp.mainColor),
-                        Text("Female", style: TextStyle(fontSize: 18, color: colorsApp.mainColor)),
-                      ],
-                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
 
 

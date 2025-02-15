@@ -69,7 +69,7 @@ class _homeScreenState extends State<homeScreen> {
                   },
                   child: Text("Get Started ",
               style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 20,
               ),)),
             )
           ],
